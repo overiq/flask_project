@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Blog
+{% endblock %}
+
+{% block main %}
+
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-two-thirds">
+
+                    {% for post in posts %}
+
+                        <div class="content">
+                            <h2><a href="{{ url_for('post', post_id=post.id, post_slug=post.slug) }}">{{ post.title }}</a></h2>
+                            <p>
+                                <span class="icon has-text-info">
+                            <i class="fa fa-calendar" aria-hidden="true"></i>
+                            </span>
+                                <span>{{ moment(post.created_on).format('Do MMM YYYY') }}</span>
+                            </p>
+                            <p>{{ post.content|truncate()|safe }}</p>
+                            <p><a class="button is-link" href="{{ url_for('post', post_id=post.id, post_slug=post.slug) }}">Read more</a></p>
+                        </div>
+
+                    {% endfor %}
+
+                </div>
+
+                <div class="column">
+                    <div class="content">
+                        <h3>Nunquam prensionem victrix.</h3>
+                        <p>Cedriums sunt impositios de talis verpa. Nunquam pugna orexis. Nunquam pugna turpis.
+                            Urbs prareres, tanquam mirabilis solitudo.The therapist absorbs. Mensa, torquis, et abactor. Heu. Elevatuss trabem!
+                        </p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos in natus ullam velit. Ad aliquid, architecto culpa cum fugit harum ipsa, itaque labore maxime, nam quisquam suscipit vel velit vero!</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

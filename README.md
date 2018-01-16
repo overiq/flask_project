@@ -1,0 +1,1 @@
+This repo contains the sample project for tutorials at https://overiq.com.

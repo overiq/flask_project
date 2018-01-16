@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block main %}
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-two-thirds">
+                    <div class="content">
+                        <h2><a href="">{{ post.title }}</a></h2>
+                        <p>
+                            <span class="icon has-text-info">
+                                <i class="fa fa-calendar" aria-hidden="true"></i>
+                            </span>
+                            <span>{{ moment(post.created_on).format('Do MMM YYYY') }}</span>
+                        </p>
+                        <p>{{ post.content|safe }}</p>                                      
+                        <section class="section">
+                            <div id="isso-thread"></div>     
+                        </section>                      
+                    </div>                    
+                </div>
+
+                <div class="column">
+                    <div class="content">
+                        <h3>Nunquam prensionem victrix.</h3>
+                        <p>
+                            Cedriums sunt impositios de talis verpa. Nunquam pugna orexis. Nunquam pugna turpis.
+                            Urbs prareres, tanquam mirabilis solitudo.The therapist absorbs. Mensa, torquis, et abactor. Heu. Elevatuss trabem!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <script data-isso="//{{ request.host }}/isso/"
+        data-isso-require-author="true"
+        data-isso-require-email="true"
+        src="//{{ request.host }}/isso/js/embed.min.js"></script>
+
+{% endblock %}
